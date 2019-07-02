@@ -37,6 +37,32 @@ There are six sources of descriptive metadata records in LibraryCloud:
 | --- | --- | --- | --- | --- |
 | Alma | MH:ALMA | >15,000,000 | MARCXML | A [lightly customized version](https://github.com/harvard-library/librarycloud_ingest/blob/release/1.5.0/src/main/resources/MARC21slim2MODS3-6.xsl) of the Library of Congress MARC-to-MODS stylesheet MARC21slim2MODS3-6.xsl. |
 | ArchivesSpace | MH:OASIS | >2,300,000 | Encoded Archival Description (EAD) | EAD files are converted to individual MODS records for each [archival component](https://github.com/harvard-library/librarycloud_ingest/blob/release/1.5.0/src/main/resources/eadcomponent2mods.xsl). |
+| JSTOR Forum | MH:VIA | >7,000,000 | VIA XML | JSTOR Forum’s SSIO XML is first converted to Harvard’s legacy [VIA format](http://hul.harvard.edu/ois/xml/xsd/via/newvia.xsd), and then [from VIA to MODS](https://github.com/harvard-library/librarycloud_ingest/blob/release/1.5.0/src/main/resources/viacomponent2mods.xsl). Individual MODS records are created for each JSTOR Forum image record, whether or not the image has been digitized. |
+| Iranian Oral History Project | MH:IOHP \ ~900 | Custom | [Custom](https://github.com/harvard-library/librarycloud_ingest/blob/master/src/main/resources/mpcol2mods.xsl) |
+| Jacques Burkhardt Scientific Drawings | MH:MCZArtwork | ~1,000 | Custom | [Custom](https://github.com/harvard-library/librarycloud_ingest/blob/master/src/main/resources/mcz2mods.xsl) |
+| Milman Parry Collection of Oral Literature | MH:MHPL | ~1,800 | Custom | [Custom](https://github.com/harvard-library/librarycloud_ingest/blob/master/src/main/resources/iohp2mods.xsl) |
+
+## Record Splitting
+<!-- This section is very important; not sure where to put it. -Robin -->
+
+Each incoming record will be transformed into one __or more__ MODS records. A record will be split during this process if it represents more than resource according to specific criteria per contributing source.
+
+### Alma
+If the incoming record contains more than one DRS URL for deliverable digital content (i.e., not counting a preview URL, such as a thumbnail image), one record will be created with all URLs plus all physical locations AND a separate record will be created for each digital manifestation.
+
+The MODS recordIdentifier for each of the split records will concatenate the original Alma record identifier, an underscore, and the URN portion of the DRS URL to the deliverable content.
+
+> [Example](https://api.lib.harvard.edu/v2/items/990088020470203941_HBS.Baker:10771779)
+
+### JSTOR Forum
+If the incoming record contains more than one item (<display:DR>), a separate MODS record will be created for each item, each record containing information about the work plus information about one of the items.  There is no record in LibraryCloud for the Work alone or the work with all items.
+The MODS recordIdentifier for the split records will concatenate the Work record identifier, an underscore, and either 1) the URN portion of the DRS URL to the deliverable content, or 2) the item record identifier, if the item does not reference digital content.
+Example, Case 1: https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579
+Example, Case 2: https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373
+ArchivesSpace:
+For each finding aid (Encoded Archival Description (EAD) file), a separate MODS record will be created for every described component. No record will be created for the archival resource (aka collection) itself, because that would redundant with the corresponding collection-level cataloging record from Alma. Each component record will inherit key fields from the hierarchy of the finding aid to ensure that the archival object is placed in context.
+The MODS recordIdentifier for each of the split records will be the component id (Ref ID) of the archival object record.
+Example: https://api.lib.harvard.edu/v2/items/hou01365c02879
 
 ## MODS Structure
 MODS consists of 20 top-level elements or element wrappers, all of which are optional and repeatable. Top-level elements may have subelements that, taken together within an instance of a top element, represent a single concept.
