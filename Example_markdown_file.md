@@ -50,21 +50,29 @@ Each incoming record will be transformed into one __or more__ MODS records. A re
 ### Alma
 If the incoming record contains more than one DRS URL for deliverable digital content (i.e., not counting a preview URL, such as a thumbnail image), one record will be created with all URLs plus all physical locations AND a separate record will be created for each digital manifestation.
 
-The MODS recordIdentifier for each of the split records will concatenate the original Alma record identifier, an underscore, and the URN portion of the DRS URL to the deliverable content.
+The MODS `recordIdentifier` for each of the split records will concatenate the original Alma record identifier, an underscore, and the URN portion of the DRS URL to the deliverable content.
 
 > [Example](https://api.lib.harvard.edu/v2/items/990088020470203941_HBS.Baker:10771779)
 
 ### JSTOR Forum
-If the incoming record contains more than one item (<display:DR>), a separate MODS record will be created for each item, each record containing information about the work plus information about one of the items.  There is no record in LibraryCloud for the Work alone or the work with all items.
-The MODS recordIdentifier for the split records will concatenate the Work record identifier, an underscore, and either 1) the URN portion of the DRS URL to the deliverable content, or 2) the item record identifier, if the item does not reference digital content.
-Example, Case 1: https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579
-Example, Case 2: https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373
-ArchivesSpace:
-For each finding aid (Encoded Archival Description (EAD) file), a separate MODS record will be created for every described component. No record will be created for the archival resource (aka collection) itself, because that would redundant with the corresponding collection-level cataloging record from Alma. Each component record will inherit key fields from the hierarchy of the finding aid to ensure that the archival object is placed in context.
-The MODS recordIdentifier for each of the split records will be the component id (Ref ID) of the archival object record.
-Example: https://api.lib.harvard.edu/v2/items/hou01365c02879
+If the incoming record contains more than one item (`<display:DR>`), a separate MODS record will be created for each item, each record containing information about the work plus information about one of the items.  There is no record in LibraryCloud for the Work alone or the work with all items.
+
+The MODS `recordIdentifier` for the split records will concatenate the Work record identifier, an underscore, and either 1) the URN portion of the DRS URL to the deliverable content, or 2) the item record identifier, if the item does not reference digital content.
+<!-- Sadly, the above needs even more detail, since prior record identifiers are used for records created before the migration to JSTOR Forum, and JSTOR Forum record identifiers for records created in JSTOR Forum. -Robin -->
+
+> [Example, Case 1](https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579)
+> [Example, Case 2](https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373)
+
+### ArchivesSpace
+For each finding aid (Encoded Archival Description [EAD] file), a separate MODS record will be created for every described component. No record will be created for the archival resource (aka collection) itself, because that would redundant with the corresponding collection-level cataloging record from Alma. Each component record will inherit key fields from the hierarchy of the finding aid to ensure that the archival object is placed in context.
+
+The MODS `recordIdentifier` for each of the split records will be the component id (Ref ID) of the archival object record.
+
+> [Example](https://api.lib.harvard.edu/v2/items/hou01365c02879)
 
 ## MODS Structure
+<!--This section is the most unformed/problematic. The special topics really are fundamental; the field-by-field profile less so, to my mind at least. But Normally, I discuss the element usage in the element list below, but our use of the relatedItem hierarchy is so fundamental to understanding the metadata that I wanted to highlight it. I’m sure how to do that effectively, though. - Robin -->
+
 MODS consists of 20 top-level elements or element wrappers, all of which are optional and repeatable. Top-level elements may have subelements that, taken together within an instance of a top element, represent a single concept.
 
 ### Special Topics: Hierarchical Description
@@ -356,3 +364,27 @@ Here is [another example](https://api.lib.harvard.edu/v2/items?recordIdentifier=
 | Quilt series |  |
 | __One Quilt | `<relatedItem type=”constituent”>` |
 | ____Total view of the quilt | `<relatedItem type=”constituent”>` |
+
+### Special Topics: Non-Latin Script Metadata
+Non-Latin script may appear in LibraryCloud records from any source. However, the MODS `altRepGroup` attribute is only used in Alma records to designate paired elements containing corresponding information in transliteration and in vernacular script.
+
+If an `altRepGroup` attribute is present with a value other than “00”, there will be another element with an identical `altRepGroup` value containing a representation of some or all of the element information in a different script (e.g., Arabic).
+
+> [Example](https://api.lib.harvard.edu/v2/items?recordIdentifier=990000773410203941)
+
+```
+<mods:titleInfo altRepGroup="02">
+  <mods:nonSort>al- </mods:nonSort>
+  <mods:title>Nahḍah al-Isrāʼīlīyah wa-tārīkhuhā al-khālid</mods:title>
+  <mods:subTitle>
+    muzayyinan bi-rusūm ʻuẓmāʼ al-Isrāʼīlīyīn fī al-ʻālam
+  </mods:subTitle>
+</mods:titleInfo>
+
+<mods:titleInfo altRepGroup="02">
+  <mods:title>نهضة الاسرائيلية وتاريخها الخالد</mods:title>
+  <mods:subTitle>مزينا برسوم عظماء الاسرائيلية في العالم</mods:subTitle>
+</mods:titleInfo>
+```
+
+	Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
