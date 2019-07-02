@@ -1,6 +1,8 @@
 The below is an example of how the current document MODS Application Profile for LibraryCloud could be rendered in markdown (.md) format. There's a helpful [cheat sheet for markdown syntax here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 GitHub's version of Markdown is [GitHub Flavord Markdown (GFM)](https://github.github.com/gfm/). It allows for tables and other useful display features.
 
+View the [prettified file on GitHub](https://github.com/joemull/Metadata/blob/master/Example_markdown_file.md).
+
 ---
 
 # MODS Application Profile for LibraryCloud
@@ -102,7 +104,7 @@ For example, note the nested uses of `relatedItem` in [this record](https://api.
 | ____Series | `<relatedItem type=”host”>` |
 | ______Collection | `<relatedItem type=”host” displayLabel=”collection”>` |
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <results xmlns="http://api.lib.harvard.edu/v2/item" xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:librarycloud="http://hul.harvard.edu/ois/xml/ns/librarycloud" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:sets="http://hul.harvard.edu/ois/xml/ns/sets" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <pagination>
@@ -373,7 +375,8 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 
 > [Example](https://api.lib.harvard.edu/v2/items?recordIdentifier=990000773410203941)
 
-```
+
+```xml
 <mods:titleInfo altRepGroup="02">
   <mods:nonSort>al- </mods:nonSort>
   <mods:title>Nahḍah al-Isrāʼīlīyah wa-tārīkhuhā al-khālid</mods:title>
