@@ -358,7 +358,7 @@ Here is an [example record](https://api.lib.harvard.edu/v2/items?recordIdentifie
 </results>
 ``` -->
 
-Here is [another example](https://api.lib.harvard.edu/v2/items?recordIdentifier=G80_olvsurrogate307431).
+Here is [another example](https://api.lib.harvard.edu/v2/items?recordIdentifier=G80_olvsurrogate307431):
 
 | Element | Relationship |
 | --- | --- |
@@ -388,4 +388,4 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 </mods:titleInfo>
 ```
 
-	Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
+Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
