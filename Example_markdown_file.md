@@ -1,13 +1,37 @@
 The below is an example of how the current document MODS Application Profile for LibraryCloud could be rendered in markdown (.md) format. There's a helpful [cheat sheet for markdown syntax here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
-GitHub's version of Markdown is [_GitHub Flavord Markdown (GFM)_](https://github.github.com/gfm/). It allows for tables and other useful display features.
+GitHub's version of Markdown is [GitHub Flavord Markdown (GFM)](https://github.github.com/gfm/). It allows for tables and other useful display features.
 
 ---
 
-# MODS Structure
+# MODS Application Profile for LibraryCloud
+_Draft, rev. 2019-06-28_
 
+## Overview
+
+Harvard’s LibraryCloud service provides API access to descriptive metadata for Harvard Library resources. LibraryCloud metadata is openly available to the public. Anyone can use the API to find, gather, and repurpose the metadata. It also is used within Harvard Library applications--for example, by serving metadata to [Harvard Digital Collections](https://library.harvard.edu/digital-collections) and [CURIOSity Digital Collections](https://curiosity.lib.harvard.edu/)--and it underlies sites and services developed throughout the Harvard community. It also supports Harvard’s partnerships with initiatives such as DPLA. As such, the metadata aims to balance internal and external requirements and expectations.
+
+LibraryCloud aggregates descriptive metadata from a variety of sources, mainly
+
+- Alma, the integrated library system where the bulk of library cataloging is created
+- JSTOR Forum, where most Harvard Library visual resources are described
+- ArchivesSpace, for archival materials
+
+Each source uses different metadata standards and vocabularies appropriate to its scope and function. To facilitate searching across and reusing the disparate metadata aggregated in LibraryCloud, the source metadata is converted into a common format, [MODS](https://www.loc.gov/standards/mods/).
+
+The records undergo other transformations, normalizations, and enrichments to improve their interoperability and usefulness in the aggregated environment:
+
+-	Incoming records are split into separate records when they represent multiple resources.
+-	The names of Harvard libraries and archives are normalized into a standard full form, and a short form for faceting.
+-	Text equivalents are added when the original metadata contains coded values for language and country/state of publication.
+-	Records that describe digital resources in Harvard’s Digital Repository Service (DRS) are augmented with a subset of administrative metadata about those resources.
+-	Records included in CURIOSity collections or other curatorial or administrative sets will include brief information about those sets.
+
+Note that LibraryCloud is not the database of record for this metadata. The metadata in LibraryCloud is neither definitive nor exhaustive. Additional metadata and more specifically-defined metadata can be found in the source systems that provide metadata to LibraryCloud.
+
+## MODS Structure
 MODS consists of 20 top-level elements or element wrappers, all of which are optional and repeatable. Top-level elements may have subelements that, taken together within an instance of a top element, represent a single concept.
 
-## Special Topics: Hierarchical Description
+### Special Topics: Hierarchical Description
 One of the MODS elements, `relatedItem`, allows for great flexibility in the way the description of a resource is structured that has implications for applications that consume the metadata.
 
 All MODS top-level elements are valid within `relatedItem`. `relatedItem` has many uses, but one is crucial to the aggregation of metadata in LibraryCloud: it enables nested, hierarchical whole/part description.
