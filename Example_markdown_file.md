@@ -61,6 +61,7 @@ The MODS `recordIdentifier` for the split records will concatenate the Work reco
 <!-- Sadly, the above needs even more detail, since prior record identifiers are used for records created before the migration to JSTOR Forum, and JSTOR Forum record identifiers for records created in JSTOR Forum. -Robin -->
 
 > [Example, Case 1](https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579)
+
 > [Example, Case 2](https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373)
 
 ### ArchivesSpace
