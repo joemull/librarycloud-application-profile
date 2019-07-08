@@ -408,7 +408,7 @@ Most, but not all, records will include at least one top-level titleInfo element
 *titleInfo* is a wrapper element
 
 | Subelement | May occur in records from | 
-|---|---|
+|:---|:---|
 | title | Alma, JSTOR Forum, ArchivesSpace |
 | subTitle | Alma |
 | partNumber | Alma |
@@ -434,7 +434,7 @@ It is not present in ArchivesSpace records, Iranian Oral History, or Milman Parr
 _originalInfo_** is a wrapper element for information about the creation or issurance of the resource.
 
 | Subelement | May occur in records from |
-|---|---|
+|:---|:---|
 | place/placeTerm | Alma, JSTOR Forum, ArchivesSpace |
 | publisher | Alma |
 | copyrightDate | Alma |
