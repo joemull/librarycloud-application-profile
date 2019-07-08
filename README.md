@@ -394,7 +394,7 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
 
 ## Profile by MODS Top-Level Element
-_titleInfo_**
+***titleInfo***
 
 Most, but not all, records will include at least one top-level titleInfo element. The exception is a subset of archival component records from ArchivesSpace. Lacking a titleInfo, these are required to have a top-level originInfo/dateCreated. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
 
@@ -416,9 +416,9 @@ Most, but not all, records will include at least one top-level titleInfo element
 
 When multople subelements are used, their order is important and should be retained in displays to insure intelligibility. 
 
-_name_** TBD
+***name*** TBD
 
-_typeOfResource_**
+***typeOfResource***
 *typeOfResource* appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated. 
 Alma records can contain any of the values enumerated in the MODS 3.6 schema. All JSTOR Forum records will have the value “still image”.
 
@@ -427,11 +427,11 @@ Alma records can contain any of the values enumerated in the MODS 3.6 schema. Al
 
 *manuscript = "yes"*: Records from Alma representing manuscript material will contain the *typeOfResource* attribute *manuscript = "yes"*
 
-_genre_**
+***genre***
 The *genre* element is present in many Alma records, nearly all JSTOR Forum records, and all Jacques Burkhardt records.
 It is not present in ArchivesSpace records, Iranian Oral History, or Milman Parry records.
 
-_originalInfo_** is a wrapper element for information about the creation or issurance of the resource.
+***originalInfo*** is a wrapper element for information about the creation or issurance of the resource.
 
 | Subelement | May occur in records from |
 |:---|:---|
@@ -442,7 +442,7 @@ _originalInfo_** is a wrapper element for information about the creation or issu
 | dateIssued | Alma |
 | dateOther | JSTOR Forum |
 
-_place_**
+***place***
 The *place* wrapper element will contain one or more *placeTerm* elements. If more than one *placeTerm* is present within a single *place* element, all *placeTerms* contain different representations of the same place.
 
 [Example](https://api.lib.harvard.edu/v2/items/990026310040203941)
@@ -462,7 +462,7 @@ Note the use of the attribute *type = "code"* in Alma records.
 **Date Elements**
 MODS supports seven different elements to express dates associated with the creation of a resource. Any of these may appear in LibraryCloud, but generally ArchivesSpace and JSTOR Forum dates will be in the *dateCreated* element, while Alma dates will use *dateIssued*.
 
-_Date Elements Attribute Usage_**
+***Date Elements Attribute Usage***
 Date elements with no attributes or with the keyDate attribute are free-text date expressions suitable for display. 
 
 Some attributes are important for applications that use LibraryCloud metadata:
@@ -485,7 +485,7 @@ The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCre
 </mods:originInfo>
 ```
 
-_language_**
+***language***
 All Alma records contain one or more coded language designation in a *languageTerm* element. The primary language code will also be available as text in a second *languageTerm* element in the same language parent element. *languageTerms* for different languages, as opposed to different ways of expressing the same language, will be in separate language elements.  
 
 Use the *type* attribute to select between code and text values.
@@ -510,49 +510,49 @@ In ArchivesSpace records, language is set at the collection-level and may not be
 <mods:languageTerm authority="iso639-2b" type="text">Undefined</mods:languageTerm>
 ```
 
-_location_**
+***location***
 The two most important uses of location in LibraryCloud records are for 1) information about the Harvard repository holding the material, and 2) links to digital content. 
 
-_physicalLocation_**
+***physicalLocation***
 There can be none, one, or several *location* elements each containing one *physicalLocation*. *physicalLocations* that represent Harvard holdings will contain the attribute *displayLabel="Harvard repository"*. Most of these will also contain a valueURI attribute with an URI from International Standard Name Identifier (ISNI) or the Library of Congress Name Authority File (LCNAF).
 
-_url_**
+***url***
 
 - mods:url access="raw object" designates deliverable digital content in the DRS.
 - mods:url access="preview" designates thumbnail images for content in the DRS.
 - mods:url access="object in context" links to the bibliographic record for the digital content from the DRS within a curated collection site. The specific collection will be indicated with a displayLabel attribute, e.g., displayLabel="Harvard Digital Collections".
 
-_physicalDescription_** TBD
+***physicalDescription*** TBD
 (extent, form, note)
 
-_abstract_**
+***abstract***
 Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the *abstract* element. 
 
-_tableOfContents_**
+***tableOfContents***
 Only Alma records can contain in the *tableOfContents* element. 
 
-_targetAudience_** and _part_** are almost non-existent in LibraryCloud. 
+***targetAudience*** and _part_** are almost non-existent in LibraryCloud. 
 
-_note_** TBD
+***note*** TBD
 
-_subject_** 
+***subject*** 
 *subject* is a wrapper element.
 
-_classification_**
+***classification***
 In LibraryCloud, only Alma ...
 
-_relatedItem_**
+***relatedItem***
 ALMA
 The MODS *relatedItem type* attribute contains enumerated values: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf. Examples in Appendix TBD.
 
 Alternatively, the *otherType* attribute ...
 See Special Topics: Hierarchical Description for other uses of *relatedItem*.
 
-_accessCondition_**
+***accessCondition***
 *displayLabel - "copyright"*
 *type = "useAndReproduction"*
 
-_extension_**
+***extension***
 LibraryCloud records will contain one or more MODS <extension> elements to augment the basic descriptive metadata record.
 Some extensions carry descriptive metadata that cannot otherwise be expressed in MODS: style, culture, and materials, techniques, and support. 
 - cdwalite:cultureWrap
@@ -566,7 +566,7 @@ The other category of extensions supplements the original metadata with related 
 
 For details, see Appendix 1: MODS Extensions, below.
 
-_recordInfo_**
+***recordInfo***
 A LibraryCloud record will contain one or more *recordInfo* wrapper elements, with at most one occurrence per level of hierarchy. That is, each *relatedItem* may also include a *recordInfo* element that applies specifically to the content of that related item. The primary *recordInfo* — the one that applies to the record as a whole--occurs at the top level of the record. Only the primary *recordInfo* will include the source attribute.
 The subelements within the primary *recordInfo* element vary by source, but all will include *recordIdentifier* and *recordChangeDate*.
 
