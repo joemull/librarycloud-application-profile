@@ -106,7 +106,7 @@ For example, note the nested uses of `relatedItem` in [this record](https://api.
 | ____Series | `<relatedItem type=”host”>` |
 | ______Collection | `<relatedItem type=”host” displayLabel=”collection”>` |
 
-```xml
+<!-- ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <results xmlns="http://api.lib.harvard.edu/v2/item" xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:librarycloud="http://hul.harvard.edu/ois/xml/ns/librarycloud" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:sets="http://hul.harvard.edu/ois/xml/ns/sets" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <pagination>
@@ -205,7 +205,7 @@ For example, note the nested uses of `relatedItem` in [this record](https://api.
     </mods:mods>
   </items>
 </results>
-```
+``` -->
 
 Records from JSTOR Forum, in contrast, start with the broader description of a painting, building, event, etc., and may have 0-2 additional levels of description for a specific view, such as a perspective, a detail, or a verso.
 
