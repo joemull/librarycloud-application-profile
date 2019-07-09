@@ -394,15 +394,15 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
 
 ## Profile by MODS Top-Level Element
-#### `titleInfo`
+### `titleInfo`
 
 Most, but not all, records will include at least one top-level `titleInfo` element. The exception is a subset of archival component records from ArchivesSpace. Lacking a `titleInfo`, these are required to have a top-level `originInfo`/`dateCreated`. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
 
-##### Attribute Usage: `type` or `otherType`
+#### Attribute Usage: `type` or `otherType`
 - `type` values: abbreviated, translated, alternative, uniform
 - `otherType` values are not controlled
 - `titleInfo` elements that contain neither `type` nor `otherType` attributes can be considered primary titles
-##### Subelements
+#### Subelements
 `titleInfo` is a wrapper element
 
 | Subelement | May occur in records from |
@@ -414,22 +414,22 @@ Most, but not all, records will include at least one top-level `titleInfo` eleme
 
 When multiple subelements are used, their order is important and should be retained in displays to insure intelligibility.
 
-#### `name`
+### `name`
 
 TBD
 
-#### `typeOfResource`
+### `typeOfResource`
 `typeOfResource` appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated.
 Alma records can contain any of the values enumerated in the MODS 3.6 schema. All JSTOR Forum records will have the value `“still image”`.
 
-##### Attribute Usage
+#### Attribute Usage
 `collection = "yes"`
 Records from Alma representing manuscript material will contain the `typeOfResource` attribute `manuscript = "yes"`
 
 `manuscript = "yes"`
 Records from Alma representing manuscript material will contain the `typeOfResource` attribute `manuscript = "yes"`
 
-***genre***
+### `genre`
 The *genre* element is present in many Alma records, nearly all JSTOR Forum records, and all Jacques Burkhardt records.
 It is not present in ArchivesSpace records, Iranian Oral History, or Milman Parry records.
 
