@@ -667,7 +667,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 
 <!-- Add table block for DRSMetadata wrapper -->
 
-| Element | inDRS |
+| Element | `inDRS` |
 |:---|:---|
 | Description | A flag indicating that there is digital content in the DRS associated with this record. |
 | Attributes | None |
@@ -678,7 +678,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | The element exists to facilitate searching and faceting. Only `inDRS="true"` is explicit in the metadata. Any record lacking a DRSMetadata extension will be recorded as `inDRS=“false”` in the LibraryCloud Item API, and there will be no DRSMetadata extension in the record. |
 | Example | `<HarvardDRS:inDRS>true</HarvardDRS:inDRS> ` | 
 
-| Element | accessFlag |
+| Element | `accessFlag` |
 |:---|:---|
 | Description | A code indicating whether the DRS digital content is accessible to the public or is restricted to Harvard affiliates. |
 | Attributes | None |
@@ -689,7 +689,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | The value applies to a file in the DRS if the URN in the LibraryCloud record resolves to a specific file.  If the URN resolves to a multifile object, the accessFlag will be the least restrictive accessFlag value associated with any deliverable file in the object.  |
 | Example | `<HarvardDRS:accessFlag>P</HarvardDRS:accessFlag>` | 
 
-| Element | contentModel |
+| Element | `contentModel` |
 |:---|:---|
 | Description | An indication of type and structure of the digital object in the DRS. |
 | Attributes | None |
@@ -700,7 +700,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | |
 | Example | `<HarvardDRS:contentModel>P</HarvardDRS:contentModel>` | 
 
-| Element | uriType |
+| Element | `uriType` |
 |:---|:---|
 | Description | A code for the type of service that will be used to deliver the content to the user. |
 | Attributes | None |
@@ -711,7 +711,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | Delivery service types: FDS (text documents), IDS (images), PDS (page-turned objects), PDS_LIST (list of page-turned objects), SDS (streaming audio), (SDS_VIDEO (streaming video) |
 | Example | `<HarvardDRS:uriType>P</HarvardDRS:uriType>` | 
 
-| Element | fileDeliveryUrl |
+| Element | `fileDeliveryUrl` |
 |:---|:---|
 | Description | The persistent identifier for delivery of the DRS content. |
 | Attributes | None |
@@ -722,7 +722,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | This URL serves to associate a URL in descriptive record with its corresponding DRS metadata. Despite its name, it does not necessarily correspond to a delivered file. Most often it delivers content in a dedicated viewer or rendering application. |
 | Example | `<HarvardDRS:fileDeliveryURL>https://nrs.harvard.edu/urn-3:FHCL:2789166</HarvardDRS:fileDeliveryURL>` | 
 
-| Element | ownerCode |
+| Element | `ownerCode` |
 |:---|:---|
 | Description | A DRS code identifying the Harvard library, archive, or other repository responsible for the digital content. |
 | Attributes | None |
@@ -733,7 +733,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | This value is expanded into the human-readable text form of the unit name in the ownerCodeDisplayName element. |
 | Example | `<HarvardDRS:ownerCode>FHCL.HOUGH</HarvardDRS:ownerCode>` | 
 
-| Element | ownerCodeDisplayName |
+| Element | `ownerCodeDisplayName` |
 |:---|:---|
 | Description | The DRS name for the Harvard library, archive, or other repository responsible for the digital content. |
 | Attributes | None |
@@ -744,7 +744,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | This value corresponds to the code for the unit name in the ownerCode element. |
 | Example | `<HarvardDRS:ownerCodeDisplayName>Houghton Library</HarvardDRS:ownerCodeDisplayName>` | 
 
-| Element | metsLabel |
+| Element | `metsLabel` |
 |:---|:---|
 | Description | A descriptive string from the METS object descriptor file in the DRS for identifying an object to a user. |
 | Attributes | None |
@@ -755,7 +755,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Note | |
 | Example | `<HarvardDRS:metsLabel> LN 93. Derviš, Zilić. Ide Tito preko Romanije. Stolac, June 9, 1950. Albert B. Lord Collection. Milman Parry Collection of Oral Literature.</HarvardDRS:metsLabel>` | 
 
-| Element | lastModificationDate |
+| Element | `lastModificationDate` |
 |:---|:---|
 | Description | The date and time of the most recent update to the object in the DRS. |
 | Attributes | None |
@@ -773,7 +773,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 
 <!-- Add table block for librarycloud wrapper -->
 
-| Element | availableTo |
+| Element | `availableTo` |
 |:---|:---|
 | Description | A single value that represents the broadest access for any DRS content referenced by the LibraryCloud record. If any part of the DRS content is public, the value will be “Everyone”. |
 | Attributes | None |
@@ -784,7 +784,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag<code>&#129130;</code>P Everyone</li><li>accessFlag<code>&#129130;</code>R Harvard only</li></ul>  Two types of content may have inaccurate values: <ol><li>Restricted images that have separate thumbnail images deposited in the DRS will appear as “Everyone”</li><li>Restricted Audio content that is accessed through a DRS playlist appears as “Everyone” because the playlist is public, even if the underlying audio files are not. </li></ol>|
 | Example | `<librarycloud:availableTo>Everyone</librarycloud:availableTo>` | 
 
-| Element | DigitalFormats |
+| Element | `DigitalFormats` |
 |:---|:---|
 | Description | DigitalFormats is a wrapper element containing one DigitalFormat element for each type of DRS content described in the LibraryCloud record. |
 | Attributes | None |
@@ -795,7 +795,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | Most LibraryCloud records will contain no more than one |
 | Example | See under DigitalFormat below. | 
 
-| Element | DigitalFormat |
+| Element | `DigitalFormat` |
 |:---|:---|
 | Description | DigitalFormat contains a descriptive word or phrase for the type of DRS content described in the LibraryCloud record. The values are derived from a combination of the DRSMetadata contentModel and uriType elements. |
 | Attributes | None |
@@ -806,7 +806,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | Most LibraryCloud records will contain no more than one DigitalFormat element. |
 | Example |  `<librarycloud:digitalFormats> <librarycloud:digitalFormat>Audio</librarycloud:digitalFormat> <librarycloud:digitalFormat>Books and documents</librarycloud:digitalFormat></librarycloud:digitalFormats>` |
 
-| Element | HarvardRepositories |
+| Element | `HarvardRepositories` |
 |:---|:---|
 | Description | HarvardRepositories is a wrapper element containing one HarvardRepository element for each unique repository name occurring in the LibraryCloud record. |
 | Attributes | None |
@@ -817,7 +817,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | The form of the value in //physicalLocation[@displayLabel=”Harvard repository”] |
 | Example | See under HarvardRepository below. |
 
-| Element | HarvardRepository |
+| Element | `HarvardRepository` |
 |:---|:---|
 | Description | HarvardRepository contains the short form of the name of a Harvard repository appearing in the LibraryCloud record. Each HarvardRepository value will occur only once per record. |
 | Attributes | None |
@@ -828,7 +828,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | Each unique value in //physicalLocation[@displayLabel=”Harvard repository”] will be mapped to a corresponding short form of repository name. The forms are added from the normalization file RepositoryNameMapping.xml. |
 | Example | `<librarycloud:HarvardRepositories> <librarycloud:HarvardRepository>Houghton</librarycloud:HarvardRepository> <librarycloud:HarvardRepository>Widener</librarycloud:HarvardRepository> </librarycloud:HarvardRepositories>`  |
 
-| Element | originalDocument |
+| Element | `originalDocument` |
 |:---|:---|
 | Description | This element contains a URL link to a downloadable copy of the source record from which the LibraryCloud record was derived. |
 | Attributes | None |
@@ -840,7 +840,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Example | `<librarycloud:originalDocument> https://s3.amazonaws.com/harvard.librarycloud.marc/990014252210203941</librarycloud:originalDocument>`  |
 
 
-| Element | priorrecordids |
+| Element | `priorrecordids` |
 |:---|:---|
 | Description | Contains one or more subelements containing superseded identifiers for the record, such as those from previous generations of cataloging systems. |
 | Attributes | None |
@@ -851,7 +851,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | |
 | Example | |
 
-| Element | recordIdentifier |
+| Element | `recordIdentifier` |
 |:---|:---|
 | Description | Contains a single superseded identifier for the record, such as the identifier from a previous generation of cataloging system. |
 | Attributes | source <code>&#124;</code> MH:ALEPH |
@@ -862,7 +862,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | |
 | Example | `<librarycloud:recordIdentifier source="MH:ALEPH">001425221</librarycloud:recordIdentifier>` |
 
-| Element | processingDate |
+| Element | `processingDate` |
 |:---|:---|
 | Description | The processingDate element includes a timestamp for the date this version of the record was ingested by LibraryCloud.  The date is replaced each time an updated version of the record is processed. |
 | Attributes | None |
@@ -881,7 +881,7 @@ These sets may be available for OAI-PMH harvesting. See this [link](https://wiki
 
 They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/women-working-1800-1930).
 
-| Element | sets |
+| Element | `sets` |
 |:---|:---|
 | Description | sets is the wrapper element containing information about each of the curated collections or sets in which the record is included. |
 | Attributes | None |
@@ -892,7 +892,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 | Note | |
 | Example | `<sets:sets> <sets:set> <sets:systemId>57217</sets:systemId> <sets:setName>Women Working, 1800-1930</sets:setName> <sets:setSpec>ww</sets:setSpec> <sets:baseUrl> https://id.lib.harvard.edu/curiosity/women-working-1800-1930/45- </sets:baseUrl> </sets:set> </sets:sets>` | 
 
-| Element | set |
+| Element | `set` |
 |:---|:---|
 | Description | set is a wrapper element containing information about a single curated collection. |
 | Attributes | None |
@@ -903,7 +903,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 | Note | |
 | Example | See sets, above. | 
 
-| Element | systemId |
+| Element | `systemId` |
 |:---|:---|
 | Description | The identifier of the collection record in the collection database.  |
 | Attributes | None |
@@ -914,7 +914,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 | Note | |
 | Example | `<sets:systemId>57218</sets:systemId>` | 
 
-| Element | setName |
+| Element | `setName` |
 |:---|:---|
 | Description | A human-readable string naming the set or collection.  |
 | Attributes | None |
@@ -925,7 +925,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 | Note | This is the same as the setName in [OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html) |
 | Example | `<sets:setName>Women Working, 1800-1930</sets:setName>` | 
 
-| Element | setSpec |
+| Element | `setSpec` |
 |:---|:---|
 | Description | A unique identifier for the set in the context of the LibraryCloud OAI-PMH Data Provider.  |
 | Attributes | None |
@@ -936,7 +936,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 | Note | This is the same as the setSpec in [OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html) |
 | Example | `<sets:setName>Women Working, 1800-1930</sets:setName>` | 
 
-| Element | baseUrl |
+| Element | `baseUrl` |
 |:---|:---|
 | Description | URL used to construct item level object-in-context links for records in the set or collection  |
 | Attributes | None |
