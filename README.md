@@ -1,7 +1,7 @@
 The below is an example of how the current document MODS Application Profile for LibraryCloud could be rendered in markdown (.md) format. There's a helpful [cheat sheet for markdown syntax here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 GitHub's version of Markdown is [GitHub Flavord Markdown (GFM)](https://github.github.com/gfm/). It allows for tables and other useful display features.
 
-View the [prettified file on GitHub](https://github.com/joemull/Metadata/blob/master/Example_markdown_file.md).
+View the [prettified file on GitHub](https://github.com/joemull/Metadata/blob/master/README.md).
 
 ---
 
@@ -394,9 +394,9 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
 
 ## Profile by MODS Top-Level Element
-***titleInfo***
+`_titleInfo_`
 
-Most, but not all, records will include at least one top-level titleInfo element. The exception is a subset of archival component records from ArchivesSpace. Lacking a titleInfo, these are required to have a top-level originInfo/dateCreated. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
+Most, but not all, records will include at least one top-level `titleInfo` element. The exception is a subset of archival component records from ArchivesSpace. Lacking a `titleInfo`, these are required to have a top-level `originInfo`/`dateCreated`. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
 
 *Attribute Usage*:
 *type* or *otherType*:
@@ -407,19 +407,19 @@ Most, but not all, records will include at least one top-level titleInfo element
 *Subelements*:
 *titleInfo* is a wrapper element
 
-| Subelement | May occur in records from | 
+| Subelement | May occur in records from |
 |:---|:---|
 | title | Alma, JSTOR Forum, ArchivesSpace |
 | subTitle | Alma |
 | partNumber | Alma |
-| nonSort | Alma | 
+| nonSort | Alma |
 
-When multople subelements are used, their order is important and should be retained in displays to insure intelligibility. 
+When multople subelements are used, their order is important and should be retained in displays to insure intelligibility.
 
 ***name*** TBD
 
 ***typeOfResource***
-*typeOfResource* appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated. 
+*typeOfResource* appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated.
 Alma records can contain any of the values enumerated in the MODS 3.6 schema. All JSTOR Forum records will have the value “still image”.
 
 *Attribute Uage*:
@@ -463,7 +463,7 @@ Note the use of the attribute *type = "code"* in Alma records.
 MODS supports seven different elements to express dates associated with the creation of a resource. Any of these may appear in LibraryCloud, but generally ArchivesSpace and JSTOR Forum dates will be in the *dateCreated* element, while Alma dates will use *dateIssued*.
 
 ***Date Elements Attribute Usage***
-Date elements with no attributes or with the keyDate attribute are free-text date expressions suitable for display. 
+Date elements with no attributes or with the keyDate attribute are free-text date expressions suitable for display.
 
 Some attributes are important for applications that use LibraryCloud metadata:
 
@@ -474,7 +474,7 @@ The encoding attribute will only occur in records from Alma, and the only value 
 These date elements designate the start and end of a date range. They support date-range searching and can be omitted from displays. There will typically be another date element better suited for display in the same *originInfo* element or in a sibling *originInfo* element.
 
 *keyDate*
-The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCreated [lacking attributes] in *dateOther* with keyDate="yes", e.g., 
+The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCreated [lacking attributes] in *dateOther* with keyDate="yes", e.g.,
 
 ```xml
 <mods:originInfo>
@@ -496,22 +496,22 @@ Use the *type* attribute to select between code and text values.
 <mods:languageTerm authority="iso639-2b" type="text">Persian </mods:languageTerm>
 ```
 
-JSTOR Forum records do not contain language information, so for the purposes of LibraryCloud, the following has been added to all records derived from JSTOR Forum: 
+JSTOR Forum records do not contain language information, so for the purposes of LibraryCloud, the following has been added to all records derived from JSTOR Forum:
 
-``` xml 
+``` xml
 <mods:languageTerm type="code">zxx</mods:languageTerm>
 <mods:languageTerm type="text">No linguistic content</mods:languageTerm>
 ```
 
 In ArchivesSpace records, language is set at the collection-level and may not be accurate for all items in the collection. For that reason, item level records derived from ArchivesSpace contain.
 
-``` xml 
+``` xml
 <mods:languageTerm authority="iso639-2b" type="code">und</mods:languageTerm>
 <mods:languageTerm authority="iso639-2b" type="text">Undefined</mods:languageTerm>
 ```
 
 ***location***
-The two most important uses of location in LibraryCloud records are for 1) information about the Harvard repository holding the material, and 2) links to digital content. 
+The two most important uses of location in LibraryCloud records are for 1) information about the Harvard repository holding the material, and 2) links to digital content.
 
 ***physicalLocation***
 There can be none, one, or several *location* elements each containing one *physicalLocation*. *physicalLocations* that represent Harvard holdings will contain the attribute *displayLabel="Harvard repository"*. Most of these will also contain a valueURI attribute with an URI from International Standard Name Identifier (ISNI) or the Library of Congress Name Authority File (LCNAF).
@@ -526,16 +526,16 @@ There can be none, one, or several *location* elements each containing one *phys
 (extent, form, note)
 
 ***abstract***
-Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the *abstract* element. 
+Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the *abstract* element.
 
 ***tableOfContents***
-Only Alma records can contain in the *tableOfContents* element. 
+Only Alma records can contain in the *tableOfContents* element.
 
-***targetAudience*** and _part_** are almost non-existent in LibraryCloud. 
+***targetAudience*** and _part_** are almost non-existent in LibraryCloud.
 
 ***note*** TBD
 
-***subject*** 
+***subject***
 *subject* is a wrapper element.
 
 ***classification***
@@ -554,12 +554,12 @@ See Special Topics: Hierarchical Description for other uses of *relatedItem*.
 
 ***extension***
 LibraryCloud records will contain one or more MODS <extension> elements to augment the basic descriptive metadata record.
-Some extensions carry descriptive metadata that cannot otherwise be expressed in MODS: style, culture, and materials, techniques, and support. 
+Some extensions carry descriptive metadata that cannot otherwise be expressed in MODS: style, culture, and materials, techniques, and support.
 - cdwalite:cultureWrap
-- cdwalite:indexingMaterialsTechSet 
+- cdwalite:indexingMaterialsTechSet
 - cdwalite:styleWrap
 
-The other category of extensions supplements the original metadata with related metadata from other systems, with administrative information, or with metadata values normalized to support particular functions. These extensions are 
+The other category of extensions supplements the original metadata with related metadata from other systems, with administrative information, or with metadata values normalized to support particular functions. These extensions are
 - DRSMetadata  
 - librarycloud
 - sets
@@ -571,7 +571,7 @@ A LibraryCloud record will contain one or more *recordInfo* wrapper elements, wi
 The subelements within the primary *recordInfo* element vary by source, but all will include *recordIdentifier* and *recordChangeDate*.
 
 JSTOR Forum Example:
-``` xml 
+``` xml
  <mods:recordInfo>
 <mods:recordContentSource authority="marcorg">MH</mods:recordContentSource>
 <mods:recordContentSource authority="marcorg">MH-VIA </mods:recordContentSource>
@@ -608,7 +608,7 @@ ArchivesSpace Example:
 **cdwalite:cultureWrap**
 *cultureWrap* is a wrapper element containing a single *cdwalite: culture* element. Multiple cultures will appear in seperate extensions. This extension only occurs in JSTOR Forum records.
 
-``` xml 
+``` xml
 <mods:extension>
 <cdwalite:cultureWrap xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
 <cdwalite:culture>Egyptian</cdwalite:culture>
@@ -618,7 +618,7 @@ ArchivesSpace Example:
 
 **cdwalite:indexingMaterialsTechSet**
 *indexingMaterialsTechSet* is a wrapper element containing a single *cdwalite:termMaterialsTech* element. Multiple materials or techniques will appear in separate extensions. This extension only occurs in JSTOR Forum records.
- 
+
 ``` xml
 <mods:extension>
 <cdwalite:indexingMaterialsTechSet xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
@@ -639,4 +639,3 @@ Example:
 </cdwalite:styleWrap>
 </mods:extension>
 ```
-
