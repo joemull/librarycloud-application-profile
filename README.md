@@ -661,3 +661,14 @@ Example:
   </cdwalite:styleWrap>
 </mods:extension>
 ```
+
+### DRSMetadata 
+The DRSMetadata extension includes a subset of administrative and technical metadata copied from the Harvard Digital Repository Service (DRS) to facilitate discovery and use of digital content available from the DRS.
+
+<!-- Add table block for DRSMetadata wrapper -->
+
+| Element | inDRS |
+|:---|:---|
+| Description | A flag indicating that there is digital content in the DRS associated with this record |
+| Attributes | None |
+| Content | True | .|.
