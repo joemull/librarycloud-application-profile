@@ -781,5 +781,5 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
-| Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag &#129130 P Everyone</li><li>accessFlag R Harvard only</li></ul>  |
+| Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag <p>&#129130<p> P Everyone</li><li>accessFlag R Harvard only</li></ul>  |
 | Example | `<librarycloud:availableTo>Everyone</librarycloud:availableTo>` | 
