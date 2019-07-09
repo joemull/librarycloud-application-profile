@@ -85,7 +85,7 @@ All MODS top-level elements are valid within `relatedItem`. `relatedItem` has ma
 
 Records from JSTOR Forum and from ArchivesSpace both take advantage of this hierarchical structure, but in different ways. In both cases, the record overall represents one resource (which may be a compound resource, such as a folder of letters that are not individually described) and a larger context for it. However, in ArchivesSpace records, the description moves from narrower to broader, while in JSTOR Forum, the description moves from the broader context to the specific item. __For ArchivesSpace and JSTOR Forum records, `relatedItem` information is necessary to provide context or specificity about the described resource.__
 
-The type and displayLabel attributes in the `relatedItem` element indicate the kind of relationship:
+The `type` and `displayLabel` attributes in the `relatedItem` element indicate the kind of relationship:
 
 | Element | Relationship |
 | --- | --- |
