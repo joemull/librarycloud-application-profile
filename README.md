@@ -799,7 +799,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 |:---|:---|
 | Description | DigitalFormat contains a descriptive word or phrase for the type of DRS content described in the LibraryCloud record. The values are derived from a combination of the DRSMetadata contentModel and uriType elements. |
 | Attributes | None |
-| Content | Controlled values: <ul><li>`Audio` -- when ContentModel=AUDIO or (ContentModel=TEXT and uriType=SDS)</li><li>`Books and documents` -- when ContentModel=DOCUMENT, PDS_DOCUMENT, or PDS_LIST_OBJECT</li><li>`Images` -- when ContentModel=STILL_IMAGE</li><li>`Videos`  -- when ContentModel=VIDEO</li></ul> |
+| Content | Controlled values: <ul><li>Audio -- when `ContentModel=AUDIO` or (`ContentModel=TEXT` and `uriType=SDS`)</li><li>Books and documents -- when `ContentModel=DOCUMENT`, `PDS_DOCUMENT`, or `PDS_LIST_OBJECT`</li><li>Images -- when `ContentModel=STILL_IMAGE`</li><li>Videos  -- when `ContentModel=VIDEO`</li></ul> |
 | Obligation | Required |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud/librarycloud:DigitalFormats |
