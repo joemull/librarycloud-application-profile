@@ -402,8 +402,8 @@ Most, but not all, records will include at least one top-level `titleInfo` eleme
 - `type` values: abbreviated, translated, alternative, uniform
 - `otherType` values are not controlled
 - `titleInfo` elements that contain neither `type` nor `otherType` attributes can be considered primary titles
-##### Subelements:
-- `titleInfo` is a wrapper element
+##### Subelements
+`titleInfo` is a wrapper element
 
 | Subelement | May occur in records from |
 |:---|:---|
@@ -414,16 +414,20 @@ Most, but not all, records will include at least one top-level `titleInfo` eleme
 
 When multiple subelements are used, their order is important and should be retained in displays to insure intelligibility.
 
-***name*** TBD
+#### `name`
 
-***typeOfResource***
-*typeOfResource* appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated.
-Alma records can contain any of the values enumerated in the MODS 3.6 schema. All JSTOR Forum records will have the value “still image”.
+TBD
 
-*Attribute Uage*:
-*collection = "yes"*: Records from Alma representing manuscript material will contain the *typeOfResource* attribute *manuscript = "yes"*
+#### `typeOfResource`
+`typeOfResource` appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated.
+Alma records can contain any of the values enumerated in the MODS 3.6 schema. All JSTOR Forum records will have the value `“still image”`.
 
-*manuscript = "yes"*: Records from Alma representing manuscript material will contain the *typeOfResource* attribute *manuscript = "yes"*
+##### Attribute Usage
+`collection = "yes"`
+Records from Alma representing manuscript material will contain the `typeOfResource` attribute `manuscript = "yes"`
+
+`manuscript = "yes"`
+Records from Alma representing manuscript material will contain the `typeOfResource` attribute `manuscript = "yes"`
 
 ***genre***
 The *genre* element is present in many Alma records, nearly all JSTOR Forum records, and all Jacques Burkhardt records.
