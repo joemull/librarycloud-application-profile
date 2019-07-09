@@ -89,9 +89,9 @@ The type and displayLabel attributes in the `relatedItem` element indicate the k
 
 | Element | Relationship |
 | --- | --- |
-| `<relatedItem type=”host”>` | A larger context of which the described resource is a part. |
-| `<relatedItem type=”host” displayLabel=”collection”>` | The largest unit –the collection—of which the resource is a part. |
-| `<relatedItem type=”constituent”>` | An item which is part of or representative of the primary object of description. |
+| `<relatedItem type="host">` | A larger context of which the described resource is a part. |
+| `<relatedItem type="host" displayLabel="collection">` | The largest unit –the collection—of which the resource is a part. |
+| `<relatedItem type="constituent">` | An item which is part of or representative of the primary object of description. |
 
 Records for archival components from ArchivesSpace start with the description of one component of a collection, followed by __any number__ of levels of description that provide the context of that component within the collection.
 
