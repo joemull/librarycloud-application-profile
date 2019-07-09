@@ -394,7 +394,7 @@ If an `altRepGroup` attribute is present with a value other than “00”, there
 Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
 
 ## Profile by MODS Top-Level Element
-`_titleInfo_`
+_`titleInfo`_
 
 Most, but not all, records will include at least one top-level `titleInfo` element. The exception is a subset of archival component records from ArchivesSpace. Lacking a `titleInfo`, these are required to have a top-level `originInfo`/`dateCreated`. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
 
