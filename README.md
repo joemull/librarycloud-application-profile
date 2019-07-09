@@ -530,7 +530,11 @@ There can be none, one, or several `location` elements each containing one `phys
 
 TBD
 
-(extent, form, note)
+#### extent
+
+#### form
+
+#### note
 
 ### abstract
 Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the `abstract` element.
@@ -538,111 +542,120 @@ Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the `abstract` 
 ### tableOfContents
 Only Alma records can contain in the `tableOfContents` element.
 
-***targetAudience*** and _part_** are almost non-existent in LibraryCloud.
+### targetAudience
+almost non-existent in LibraryCloud
 
-***note*** TBD
+### part
+almost non-existent in LibraryCloud
 
-***subject***
-*subject* is a wrapper element.
+### note
+TBD
 
-***classification***
+### subject
+`subject` is a wrapper element.
+
+### classification
 In LibraryCloud, only Alma ...
 
-***relatedItem***
+### relatedItem
 ALMA
-The MODS *relatedItem type* attribute contains enumerated values: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf. Examples in Appendix TBD.
 
-Alternatively, the *otherType* attribute ...
-See Special Topics: Hierarchical Description for other uses of *relatedItem*.
+The MODS `relatedItem type` attribute contains enumerated values: `preceding`, `succeeding`, `original`, `host`, `constituent`, `series`, `otherVersion`, `otherFormat`, `isReferencedBy`, `references`, `reviewOf`. Examples in _Appendix TBD_.
 
-***accessCondition***
-*displayLabel - "copyright"*
-*type = "useAndReproduction"*
+Alternatively, the `otherType` attribute ...
 
-***extension***
-LibraryCloud records will contain one or more MODS <extension> elements to augment the basic descriptive metadata record.
+See _Special Topics: Hierarchical Description_ for other uses of `relatedItem`.
+
+### accessCondition
+`displayLabel - "copyright"`
+`type = "useAndReproduction"`
+
+### extension
+LibraryCloud records will contain one or more MODS `extension` elements to augment the basic descriptive metadata record.
+
 Some extensions carry descriptive metadata that cannot otherwise be expressed in MODS: style, culture, and materials, techniques, and support.
-- cdwalite:cultureWrap
-- cdwalite:indexingMaterialsTechSet
-- cdwalite:styleWrap
+- `cdwalite:cultureWrap`
+- `cdwalite:indexingMaterialsTechSet`
+- `cdwalite:styleWrap`
 
 The other category of extensions supplements the original metadata with related metadata from other systems, with administrative information, or with metadata values normalized to support particular functions. These extensions are
-- DRSMetadata  
-- librarycloud
-- sets
+- `DRSMetadata`  
+- `librarycloud`
+- `sets`
 
-For details, see Appendix 1: MODS Extensions, below.
+For details, see _Appendix 1: MODS Extensions_, below.
 
-***recordInfo***
-A LibraryCloud record will contain one or more *recordInfo* wrapper elements, with at most one occurrence per level of hierarchy. That is, each *relatedItem* may also include a *recordInfo* element that applies specifically to the content of that related item. The primary *recordInfo* — the one that applies to the record as a whole--occurs at the top level of the record. Only the primary *recordInfo* will include the source attribute.
-The subelements within the primary *recordInfo* element vary by source, but all will include *recordIdentifier* and *recordChangeDate*.
+### recordInfo
+A LibraryCloud record will contain one or more `recordInfo` wrapper elements, with at most one occurrence per level of hierarchy. That is, each `relatedItem` may also include a `recordInfo` element that applies specifically to the content of that related item. The primary `recordInfo`--the one that applies to the record as a whole--occurs at the top level of the record. Only the primary `recordInfo` will include the source attribute.
+
+The subelements within the primary `recordInfo` element vary by source, but all will include `recordIdentifier` and `recordChangeDate`.
 
 JSTOR Forum Example:
 ``` xml
- <mods:recordInfo>
-<mods:recordContentSource authority="marcorg">MH</mods:recordContentSource>
-<mods:recordContentSource authority="marcorg">MH-VIA </mods:recordContentSource>
-<mods:recordChangeDate encoding="iso8601">20181109</mods:recordChangeDate>
-<mods:recordIdentifier source="MH:VIA">8000464237_urn-3:FHCL.JUD:9806298</mods:recordIdentifier>
-<mods:languageOfCataloging>
-<mods:languageTerm>eng</mods:languageTerm>
-</mods:languageOfCataloging>
+<mods:recordInfo>
+  <mods:recordContentSource authority="marcorg">MH</mods:recordContentSource>
+  <mods:recordContentSource authority="marcorg">MH-VIA </mods:recordContentSource>
+  <mods:recordChangeDate encoding="iso8601">20181109</mods:recordChangeDate>
+  <mods:recordIdentifier source="MH:VIA">8000464237_urn-3:FHCL.JUD:9806298</mods:recordIdentifier>
+  <mods:languageOfCataloging>
+    <mods:languageTerm>eng</mods:languageTerm>
+  </mods:languageOfCataloging>
 </mods:recordInfo>
 ```
 
 Alma Example:
 ``` xml
 <mods:recordInfo>
-<mods:recordCreationDate encoding="marc">821202</mods:recordCreationDate>
-<mods:recordChangeDate encoding="iso8601">20180528</mods:recordChangeDate>
-<mods:recordIdentifier source="MH:ALMA">990000000020203941</mods:recordIdentifier>
-<mods:recordOrigin>
-Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl (Revision 1.117 2017/02/14)
-</mods:recordOrigin>
+  <mods:recordCreationDate encoding="marc">821202</mods:recordCreationDate>
+  <mods:recordChangeDate encoding="iso8601">20180528</mods:recordChangeDate>
+  <mods:recordIdentifier source="MH:ALMA">990000000020203941</mods:recordIdentifier>
+  <mods:recordOrigin>
+    Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl (Revision 1.117 2017/02/14)
+  </mods:recordOrigin>
 </mods:recordInfo>
 ```
 
 ArchivesSpace Example:
 ``` xml
 <mods:recordInfo>
-<mods:recordChangeDate encoding="iso8601">20190523</mods:recordChangeDate>
-<mods:recordIdentifier source="MH:OASIS">hua03010c00264</mods:recordIdentifier>
+  <mods:recordChangeDate encoding="iso8601">20190523</mods:recordChangeDate>
+  <mods:recordIdentifier source="MH:OASIS">hua03010c00264</mods:recordIdentifier>
 </mods:recordInfo>
 ```
 
-##Appendix 1: MODS Extensions
+## Appendix 1: MODS Extensions
 
-**cdwalite:cultureWrap**
-*cultureWrap* is a wrapper element containing a single *cdwalite: culture* element. Multiple cultures will appear in seperate extensions. This extension only occurs in JSTOR Forum records.
-
-``` xml
-<mods:extension>
-<cdwalite:cultureWrap xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
-<cdwalite:culture>Egyptian</cdwalite:culture>
-</cdwalite:cultureWrap>
-</mods:extension>
-```
-
-**cdwalite:indexingMaterialsTechSet**
-*indexingMaterialsTechSet* is a wrapper element containing a single *cdwalite:termMaterialsTech* element. Multiple materials or techniques will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+### cdwalite:cultureWrap
+`cultureWrap` is a wrapper element containing a single `cdwalite:culture` element. Multiple cultures will appear in separate extensions. This extension only occurs in JSTOR Forum records.
 
 ``` xml
 <mods:extension>
-<cdwalite:indexingMaterialsTechSet xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
-<cdwalite:termMaterialsTech>granite</cdwalite:termMaterialsTech>
-</cdwalite:indexingMaterialsTechSet>
+  <cdwalite:cultureWrap xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
+    <cdwalite:culture>Egyptian</cdwalite:culture>
+  </cdwalite:cultureWrap>
 </mods:extension>
 ```
 
-**cdwalite:styleWrap**
-*styleWrap* is a wrapper element containing a single *cdwalite:style* element. Multiple styles will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+### cdwalite:indexingMaterialsTechSet
+`indexingMaterialsTechSet` is a wrapper element containing a single `cdwalite:termMaterialsTech` element. Multiple materials or techniques will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+
+``` xml
+<mods:extension>
+  <cdwalite:indexingMaterialsTechSet xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
+    <cdwalite:termMaterialsTech>granite</cdwalite:termMaterialsTech>
+  </cdwalite:indexingMaterialsTechSet>
+</mods:extension>
+```
+
+### cdwalite:styleWrap
+`styleWrap` is a wrapper element containing a single `cdwalite:style` element. Multiple styles will appear in separate extensions. This extension only occurs in JSTOR Forum records.
 
 Example:
 
 ``` xml
 <mods:extension>
-<cdwalite:styleWrap xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
-<cdwalite:style>New Kingdom</cdwalite:style>
-</cdwalite:styleWrap>
+  <cdwalite:styleWrap xmlns:cdwalite="http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite">
+    <cdwalite:style>New Kingdom</cdwalite:style>
+  </cdwalite:styleWrap>
 </mods:extension>
 ```
