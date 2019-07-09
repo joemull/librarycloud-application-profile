@@ -837,8 +837,29 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
 | Note | The source record referred to by the originalDocument link may already have transformed from the internal format of the source system before it reaches the LibraryCloud ingest process. More than one LibraryCloud may be derived from the same source record. See Record Splitting in the MODS Application Profile for LibraryCloud |
-| Example | `<librarycloud:originalDocument> https://s3.amazonaws.com/harvard.librarycloud.marc/990014252210203941
-</librarycloud:originalDocument>`  |
+| Example | `<librarycloud:originalDocument> https://s3.amazonaws.com/harvard.librarycloud.marc/990014252210203941</librarycloud:originalDocument>`  |
 
+
+| Element | priorrecordids |
+|:---|:---|
+| Description | Contains one or more subelements containing superseded identifiers for the record, such as those from previous generations of cataloging systems. |
+| Attributes | None |
+| Content | Subelement: <ul><li>recordIdentifier</li></ul> |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | |
+| Example | |
+
+| Element | recordIdentifier |
+|:---|:---|
+| Description | Contains a single superseded identifier for the record, such as the identifier from a previous generation of cataloging system. |
+| Attributes | source   MH:ALEPH |
+| Content | |
+| Obligation | Required when parent is present |
+| Repeatable | Yes |
+| Contained In | //librarycloud:priorrecordids |
+| Note | |
+| Example | `<librarycloud:recordIdentifier source="MH:ALEPH">001425221</librarycloud:recordIdentifier>` |
 
 
