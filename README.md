@@ -783,3 +783,62 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Contained In | //librarycloud:librarycloud |
 | Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag->P Everyone</li><li>accessFlag->R Harvard only</li></ul>  Two types of content may have inaccurate values: <ol><li>Restricted images that have separate thumbnail images deposited in the DRS will appear as “Everyone”</li><li>Restricted Audio content that is accessed through a DRS playlist appears as “Everyone” because the playlist is public, even if the underlying audio files are not. </li></ol>|
 | Example | `<librarycloud:availableTo>Everyone</librarycloud:availableTo>` | 
+
+| Element | DigitalFormats |
+|:---|:---|
+| Description | DigitalFormats is a wrapper element containing one DigitalFormat element for each type of DRS content described in the LibraryCloud record. |
+| Attributes | None |
+| Content | Subelement: <ul><li>DigitalFormat</li></ul> |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | Most LibraryCloud records will contain no more than one |
+| Example | See under DigitalFormat below. | 
+
+| Element | DigitalFormat |
+|:---|:---|
+| Description | DigitalFormat contains a descriptive word or phrase for the type of DRS content described in the LibraryCloud record. The values are derived from a combination of the DRSMetadata contentModel and uriType elements. |
+| Attributes | None |
+| Content | Controlled values: <ul><li>Audio -- when ContentModel=AUDIO or (ContentModel=TEXT and uriType=SDS)</li><li>Books and documents -- when ContentModel=DOCUMENT, PDS_DOCUMENT, or PDS_LIST_OBJECT</li><li>Images -- when ContentModel=STILL_IMAGE</li><li>Videos  -- when ContentModel=VIDEO</li></ul> |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud/librarycloud:DigitalFormats |
+| Note | Most LibraryCloud records will contain no more than one DigitalFormat element. |
+| Example |  `<librarycloud:digitalFormats> <librarycloud:digitalFormat>Audio</librarycloud:digitalFormat> <librarycloud:digitalFormat>Books and documents</librarycloud:digitalFormat></librarycloud:digitalFormats>` |
+
+| Element | HarvardRepositories |
+|:---|:---|
+| Description | HarvardRepositories is a wrapper element containing one HarvardRepository element for each unique repository name occurring in the LibraryCloud record. |
+| Attributes | None |
+| Content | Subelement: <ul><li>HarvardRepository</li></ul> |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | The form of the value in //physicalLocation[@displayLabel=”Harvard repository”] |
+| Example | See under HarvardRepository below. |
+
+| Element | HarvardRepository |
+|:---|:---|
+| Description | HarvardRepository contains the short form of the name of a Harvard repository appearing in the LibraryCloud record. Each HarvardRepository value will occur only once per record. |
+| Attributes | None |
+| Content | Text |
+| Obligation | Required |
+| Repeatable | Yes |
+| Contained In | //librarycloud:HarvardRepositories |
+| Note | Each unique value in //physicalLocation[@displayLabel=”Harvard repository”] will be mapped to a corresponding short form of repository name. The forms are added from the normalization file RepositoryNameMapping.xml. |
+| Example | `<librarycloud:HarvardRepositories> <librarycloud:HarvardRepository>Houghton</librarycloud:HarvardRepository> <librarycloud:HarvardRepository>Widener</librarycloud:HarvardRepository> </librarycloud:HarvardRepositories>`  |
+
+| Element | originalDocument |
+|:---|:---|
+| Description | This element contains a URL link to a downloadable copy of the source record from which the LibraryCloud record was derived. |
+| Attributes | None |
+| Content | URL |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | The source record referred to by the originalDocument link may already have transformed from the internal format of the source system before it reaches the LibraryCloud ingest process. More than one LibraryCloud may be derived from the same source record. See Record Splitting in the MODS Application Profile for LibraryCloud |
+| Example | `<librarycloud:originalDocument> https://s3.amazonaws.com/harvard.librarycloud.marc/990014252210203941
+</librarycloud:originalDocument>`  |
+
+
+
