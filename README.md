@@ -862,4 +862,134 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Note | |
 | Example | `<librarycloud:recordIdentifier source="MH:ALEPH">001425221</librarycloud:recordIdentifier>` |
 
+| Element | processingDate |
+|:---|:---|
+| Description | The processingDate element includes a timestamp for the date this version of the record was ingested by LibraryCloud.  The date is replaced each time an updated version of the record is processed. |
+| Attributes | None |
+| Content | Timestamp in the form YYYY-MM-DDTHH:mmZ |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | 
+There is no date in LibraryCloud to represent the first date that a record was loaded. |
+| Example | `<librarycloud:processingDate>2019-04-16T05:49Z</librarycloud:processingDate>` |
+
+## set Extension 
+The set extension identifies curated collections in which the item is included, specifically collections created and maintained through Harvard’s Collection Builder service.
+
+These sets may be available for OAI-PMH harvesting. See this [link](https://wiki.harvard.edu/confluence/display/LibraryStaffDoc/LibraryCloud+OAI-PMH+Data+Provider).
+
+They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/women-working-1800-1930).
+
+| Element | sets |
+|:---|:---|
+| Description | sets is the wrapper element containing information about each of the curated collections or sets in which the record is included. |
+| Attributes | None |
+| Content | Subelement: <ul><li>set</li></ul> |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //mods:extension |
+| Note | |
+| Example | `<sets:sets> <sets:set> <sets:systemId>57217</sets:systemId> <sets:setName>Women Working, 1800-1930</sets:setName> <sets:setSpec>ww</sets:setSpec> <sets:baseUrl> https://id.lib.harvard.edu/curiosity/women-working-1800-1930/45- </sets:baseUrl> </sets:set> </sets:sets>` | 
+
+| Element | set |
+|:---|:---|
+| Description | set is a wrapper element containing information about a single curated collection. |
+| Attributes | None |
+| Content | Subelements: <ul><li>systemId</li><li>setName</li><li>setSpec</li><li>baseUrl</li></ul> |
+| Obligation | Required when parent is present |
+| Repeatable | Yes |
+| Contained In | //sets:sets |
+| Note | |
+| Example | See sets, above. | 
+
+| Element | systemId |
+|:---|:---|
+| Description | The identifier of the collection record in the collection database.  |
+| Attributes | None |
+| Content | One numeric identifier |
+| Obligation | Required when parent is present |
+| Repeatable | No |
+| Contained In | //sets:set |
+| Note | |
+| Example | `<sets:systemId>57218</sets:systemId>` | 
+
+| Element | setName |
+|:---|:---|
+| Description | A human-readable string naming the set or collection.  |
+| Attributes | None |
+| Content | Text string |
+| Obligation | Required when parent is present |
+| Repeatable | No |
+| Contained In | //sets:set |
+| Note | This is the same as the setName in [OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html) |
+| Example | `<sets:setName>Women Working, 1800-1930</sets:setName>` | 
+
+| Element | setSpec |
+|:---|:---|
+| Description | A unique identifier for the set in the context of the LibraryCloud OAI-PMH Data Provider.  |
+| Attributes | None |
+| Content | Text string |
+| Obligation | Required when parent is present |
+| Repeatable | No |
+| Contained In | //sets:set |
+| Note | This is the same as the setSpec in [OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html) |
+| Example | `<sets:setName>Women Working, 1800-1930</sets:setName>` | 
+
+| Element | baseUrl |
+|:---|:---|
+| Description | URL used to construct item level object-in-context links for records in the set or collection  |
+| Attributes | None |
+| Content | URL |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //sets:set |
+| Note | baseUrl will only be present if there is a public exhibit or site for the collection. |
+| Example | `<sets:baseUrl> https://id.lib.harvard.edu/curiosity/women-working-1800-1930/45- </sets:baseUrl>` | 
+
+## Appendix 2: relatedItem examples
+MH:ALMA:
+<ol><li> Permalink to the record in HOLLIS: 
+
+  `<mods:relatedItem otherType="HOLLIS record"> <mods:location> <mods:url> https://id.lib.harvard.edu/alma/990000000230203941/catalog </mods:url> </mods:location>`
+</li>
+<li> Unspecified - Link to Finding Aid: 
+
+  ` 
+  <mods:relatedItem>
+  <mods:titleInfo>
+  <mods:title>Electronic finding aid</mods:title>
+  </mods:titleInfo>
+  <mods:location>
+  <mods:url>https://nrs.harvard.edu/urn-3:RAD.SCHL:sch01321 </mods:url>
+  </mods:location>
+  `
+</li>
+<li> Series titles:
+
+  `<mods:relatedItem type="series">
+  <mods:titleInfo>
+  <mods:title>Tübinger Beiträge zur Linguistik ; 465</mods:title>
+  </mods:titleInfo>
+  `
+</li>
+<li> Other format: 
+
+  `<mods:relatedItem type="otherFormat" displayLabel="Online version:" otherType="Online version:">
+  <mods:titleInfo>
+  <mods:title>Reversing the tide</mods:title>
+  </mods:titleInfo>
+  <mods:originInfo>
+  <mods:publisher>Washington, DC : World Bank, 2005</mods:publisher>
+  </mods:originInfo>
+  <mods:identifier type="local">(OCoLC)654737656</mods:identifier>
+  `
+</li>
+
+
+
+
+
+
+
 
