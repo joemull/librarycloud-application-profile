@@ -398,23 +398,21 @@ Non-Latin script metadata may occur in records from other sources, but it will n
 
 Most, but not all, records will include at least one top-level `titleInfo` element. The exception is a subset of archival component records from ArchivesSpace. Lacking a `titleInfo`, these are required to have a top-level `originInfo`/`dateCreated`. See an [example](https://api.lib.harvard.edu/v2/items?q=hou02652c00990).
 
-*Attribute Usage*:
-*type* or *otherType*:
-- *type* values: abbreviated, translated, alternative, uniform
-- *otherType* values are not controlled
-- *titleInfo* elements that contain neither *type* nor *otherType* attributes can be considered primary titles
-
-*Subelements*:
-*titleInfo* is a wrapper element
+##### Attribute Usage: `type` or `otherType`
+- `type` values: abbreviated, translated, alternative, uniform
+- `otherType` values are not controlled
+- `titleInfo` elements that contain neither `type` nor `otherType` attributes can be considered primary titles
+##### Subelements:
+- `titleInfo` is a wrapper element
 
 | Subelement | May occur in records from |
 |:---|:---|
-| title | Alma, JSTOR Forum, ArchivesSpace |
-| subTitle | Alma |
-| partNumber | Alma |
-| nonSort | Alma |
+| `title` | Alma, JSTOR Forum, ArchivesSpace |
+| `subTitle` | Alma |
+| `partNumber` | Alma |
+| `nonSort` | Alma |
 
-When multople subelements are used, their order is important and should be retained in displays to insure intelligibility.
+When multiple subelements are used, their order is important and should be retained in displays to insure intelligibility.
 
 ***name*** TBD
 
