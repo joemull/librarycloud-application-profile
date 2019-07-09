@@ -682,7 +682,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 |:---|:---|
 | Description | A code indicating whether the DRS digital content is accessible to the public or is restricted to Harvard affiliates. |
 | Attributes | None |
-| Content | Controlled values: <ul><li>P (public)</li><li>R (restricted)</li></ul> |
+| Content | Controlled values: <ul><li>`P` (public)</li><li>`R` (restricted)</li></ul> |
 | Obligation | Required |
 | Repeatable | No |
 | Contained In | //HarvardDRS:DRSMetadata |
@@ -693,7 +693,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 |:---|:---|
 | Description | An indication of type and structure of the digital object in the DRS. |
 | Attributes | None |
-| Content | Controlled values: <ul><li>STILL IMAGE</li><li>PDS DOCUMENT</li><li>DOCUMENT</li><li>AUDIO</li><li>TEXT</li><li>PDS DOCUMENT LIST</li><li>VIDEO</li></ul> |
+| Content | Controlled values: <ul><li>`STILL IMAGE`</li><li>`PDS DOCUMENT`</li><li>`DOCUMENT`</li><li>`AUDIO`</li><li>`TEXT`</li><li>`PDS DOCUMENT LIST`</li><li>`VIDEO`</li></ul> |
 | Obligation | Required |
 | Repeatable | No |
 | Contained In | //HarvardDRS:DRSMetadata |
@@ -704,7 +704,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 |:---|:---|
 | Description | A code for the type of service that will be used to deliver the content to the user. |
 | Attributes | None |
-| Content | Controlled values: <ul><li>FDS</li><li>IDS</li><li>PDS</li><li>PDS_LIST</li><li>SDS</li><li>SDS_VIDEO</li></ul> |
+| Content | Controlled values: <ul><li>`FDS`</li><li>`IDS`</li><li>`PDS`</li><li>`PDS_LIST`</li><li>`SDS`</li><li>`SDS_VIDEO`</li></ul> |
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //HarvardDRS:DRSMetadata |
@@ -788,7 +788,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 |:---|:---|
 | Description | DigitalFormats is a wrapper element containing one DigitalFormat element for each type of DRS content described in the LibraryCloud record. |
 | Attributes | None |
-| Content | Subelement: <ul><li>DigitalFormat</li></ul> |
+| Content | Subelement: <ul><li>`DigitalFormat`</li></ul> |
 | Obligation | Required |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
@@ -799,7 +799,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 |:---|:---|
 | Description | DigitalFormat contains a descriptive word or phrase for the type of DRS content described in the LibraryCloud record. The values are derived from a combination of the DRSMetadata contentModel and uriType elements. |
 | Attributes | None |
-| Content | Controlled values: <ul><li>Audio -- when ContentModel=AUDIO or (ContentModel=TEXT and uriType=SDS)</li><li>Books and documents -- when ContentModel=DOCUMENT, PDS_DOCUMENT, or PDS_LIST_OBJECT</li><li>Images -- when ContentModel=STILL_IMAGE</li><li>Videos  -- when ContentModel=VIDEO</li></ul> |
+| Content | Controlled values: <ul><li>`Audio` -- when ContentModel=AUDIO or (ContentModel=TEXT and uriType=SDS)</li><li>`Books and documents` -- when ContentModel=DOCUMENT, PDS_DOCUMENT, or PDS_LIST_OBJECT</li><li>`Images` -- when ContentModel=STILL_IMAGE</li><li>`Videos`  -- when ContentModel=VIDEO</li></ul> |
 | Obligation | Required |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud/librarycloud:DigitalFormats |
@@ -810,7 +810,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 |:---|:---|
 | Description | HarvardRepositories is a wrapper element containing one HarvardRepository element for each unique repository name occurring in the LibraryCloud record. |
 | Attributes | None |
-| Content | Subelement: <ul><li>HarvardRepository</li></ul> |
+| Content | Subelement: <ul><li>`HarvardRepository`</li></ul> |
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
@@ -844,7 +844,7 @@ The elements may occur together in one librarycloud wrapper element in a single 
 |:---|:---|
 | Description | Contains one or more subelements containing superseded identifiers for the record, such as those from previous generations of cataloging systems. |
 | Attributes | None |
-| Content | Subelement: <ul><li>recordIdentifier</li></ul> |
+| Content | Subelement: <ul><li>`recordIdentifier`</li></ul> |
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
@@ -885,7 +885,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 |:---|:---|
 | Description | sets is the wrapper element containing information about each of the curated collections or sets in which the record is included. |
 | Attributes | None |
-| Content | Subelement: <ul><li>set</li></ul> |
+| Content | Subelement: <ul><li>`set`</li></ul> |
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //mods:extension |
@@ -896,7 +896,7 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 |:---|:---|
 | Description | set is a wrapper element containing information about a single curated collection. |
 | Attributes | None |
-| Content | Subelements: <ul><li>systemId</li><li>setName</li><li>setSpec</li><li>baseUrl</li></ul> |
+| Content | Subelements: <ul><li>`systemId`</li><li>`setName`</li><li>`setSpec`</li><li>`baseUrl`</li></ul> |
 | Obligation | Required when parent is present |
 | Repeatable | Yes |
 | Contained In | //sets:sets |
