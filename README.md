@@ -431,52 +431,54 @@ Records from Alma representing manuscript material will contain the `typeOfResou
 
 ### genre
 The `genre` element is present in many Alma records, nearly all JSTOR Forum records, and all Jacques Burkhardt records.
+
 It is not present in ArchivesSpace records, Iranian Oral History, or Milman Parry records.
 
-***originalInfo*** is a wrapper element for information about the creation or issurance of the resource.
+### originalInfo
+The `originalInfo` element is a wrapper for information about the creation or issuance of the resource.
 
 | Subelement | May occur in records from |
 |:---|:---|
-| place/placeTerm | Alma, JSTOR Forum, ArchivesSpace |
-| publisher | Alma |
-| copyrightDate | Alma |
-| dateCreated | Alma, JSTOR Forum, ArchivesSpace |
-| dateIssued | Alma |
-| dateOther | JSTOR Forum |
+| `place/placeTerm` | Alma, JSTOR Forum, ArchivesSpace |
+| `publisher` | Alma |
+| `copyrightDate` | Alma |
+| `dateCreated` | Alma, JSTOR Forum, ArchivesSpace |
+| `dateIssued` | Alma |
+| `dateOther` | JSTOR Forum |
 
-***place***
-The *place* wrapper element will contain one or more *placeTerm* elements. If more than one *placeTerm* is present within a single *place* element, all *placeTerms* contain different representations of the same place.
+#### place
+The `place` wrapper element will contain one or more `placeTerm` elements. If more than one `placeTerm` is present within a single `place` element, all `placeTerms` contain different representations of the same place.
 
 [Example](https://api.lib.harvard.edu/v2/items/990026310040203941)
 
 ```xml
 <mods:place>
-<mods:placeTerm authority="marccountry" type="code">miu</mods:placeTerm>
-<mods:placeTerm authority="marccountry" type="text">Michigan</mods:placeTerm>
+  <mods:placeTerm authority="marccountry" type="code">miu</mods:placeTerm>
+  <mods:placeTerm authority="marccountry" type="text">Michigan</mods:placeTerm>
 </mods:place>
 <mods:place>
-<mods:placeTerm type="text">Detroit</mods:placeTerm>
+  <mods:placeTerm type="text">Detroit</mods:placeTerm>
 </mods:place>
 ```
 
-Note the use of the attribute *type = "code"* in Alma records.
+Note the use of the attribute `type = "code"` in Alma records.
 
-**Date Elements**
-MODS supports seven different elements to express dates associated with the creation of a resource. Any of these may appear in LibraryCloud, but generally ArchivesSpace and JSTOR Forum dates will be in the *dateCreated* element, while Alma dates will use *dateIssued*.
+#### Date Elements
+MODS supports seven different elements to express dates associated with the creation of a resource. Any of these may appear in LibraryCloud, but generally ArchivesSpace and JSTOR Forum dates will be in the `dateCreated` element, while Alma dates will use `dateIssued`.
 
-***Date Elements Attribute Usage***
+##### Date Elements Attribute Usage
 Date elements with no attributes or with the keyDate attribute are free-text date expressions suitable for display.
 
-Some attributes are important for applications that use LibraryCloud metadata:
+Some attributes are important for applications that use LibraryCloud metadata.
 
-*encoding*
-The encoding attribute will only occur in records from Alma, and the only value is “marc”. These date elements are designed to support date and date-range searching and are best omitted from displays.
+`encoding`
+The encoding attribute will only occur in records from Alma, and the only value is `“marc”`. These date elements are designed to support date and date-range searching and are best omitted from displays.
 
-*point*
-These date elements designate the start and end of a date range. They support date-range searching and can be omitted from displays. There will typically be another date element better suited for display in the same *originInfo* element or in a sibling *originInfo* element.
+`point`
+These date elements designate the start and end of a date range. They support date-range searching and can be omitted from displays. There will typically be another date element better suited for display in the same `originInfo` element or in a sibling `originInfo` element.
 
-*keyDate*
-The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCreated [lacking attributes] in *dateOther* with keyDate="yes", e.g.,
+`keyDate`
+The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCreated [lacking attributes] in `dateOther` with `keyDate="yes"`.
 
 ```xml
 <mods:originInfo>
@@ -487,51 +489,54 @@ The keyDate attribute only appears in JSTOR Forum records. It duplicates dateCre
 </mods:originInfo>
 ```
 
-***language***
-All Alma records contain one or more coded language designation in a *languageTerm* element. The primary language code will also be available as text in a second *languageTerm* element in the same language parent element. *languageTerms* for different languages, as opposed to different ways of expressing the same language, will be in separate language elements.  
+### language
+All Alma records contain one or more coded language designation in a `languageTerm` element. The primary language code will also be available as text in a second `languageTerm` element in the same language parent element. `languageTerms` for different languages, as opposed to different ways of expressing the same language, will be in separate language elements.  
 
-Use the *type* attribute to select between code and text values.
+Use the `type` attribute to select between code and text values.
 
-``` xml
+```xml
 <mods:language>
-<mods:languageTerm authority="iso639-2b" type="code">per </mods:languageTerm>
-<mods:languageTerm authority="iso639-2b" type="text">Persian </mods:languageTerm>
+  <mods:languageTerm authority="iso639-2b" type="code">per </mods:languageTerm>
+  <mods:languageTerm authority="iso639-2b" type="text">Persian </mods:languageTerm>
 ```
 
 JSTOR Forum records do not contain language information, so for the purposes of LibraryCloud, the following has been added to all records derived from JSTOR Forum:
 
-``` xml
+```xml
 <mods:languageTerm type="code">zxx</mods:languageTerm>
 <mods:languageTerm type="text">No linguistic content</mods:languageTerm>
 ```
 
 In ArchivesSpace records, language is set at the collection-level and may not be accurate for all items in the collection. For that reason, item level records derived from ArchivesSpace contain.
 
-``` xml
+```xml
 <mods:languageTerm authority="iso639-2b" type="code">und</mods:languageTerm>
 <mods:languageTerm authority="iso639-2b" type="text">Undefined</mods:languageTerm>
 ```
 
-***location***
+### location
 The two most important uses of location in LibraryCloud records are for 1) information about the Harvard repository holding the material, and 2) links to digital content.
 
-***physicalLocation***
-There can be none, one, or several *location* elements each containing one *physicalLocation*. *physicalLocations* that represent Harvard holdings will contain the attribute *displayLabel="Harvard repository"*. Most of these will also contain a valueURI attribute with an URI from International Standard Name Identifier (ISNI) or the Library of Congress Name Authority File (LCNAF).
+#### physicalLocation
+There can be none, one, or several `location` elements each containing one `physicalLocation`. Instances of `physicalLocation` that represent Harvard holdings will contain the attribute `displayLabel="Harvard repository"`. Most of these will also contain a `valueURI` attribute with a URI from International Standard Name Identifier (ISNI) or the Library of Congress Name Authority File (LCNAF).
 
-***url***
+#### url
 
-- mods:url access="raw object" designates deliverable digital content in the DRS.
-- mods:url access="preview" designates thumbnail images for content in the DRS.
-- mods:url access="object in context" links to the bibliographic record for the digital content from the DRS within a curated collection site. The specific collection will be indicated with a displayLabel attribute, e.g., displayLabel="Harvard Digital Collections".
+- `mods:url access="raw object"` designates deliverable digital content in the DRS.
+- `mods:url access="preview"` designates thumbnail images for content in the DRS.
+- `mods:url access="object in context"` links to the bibliographic record for the digital content from the DRS within a curated collection site. The specific collection will be indicated with a displayLabel attribute, e.g., `displayLabel="Harvard Digital Collections"`.
 
-***physicalDescription*** TBD
+### physicalDescription
+
+TBD
+
 (extent, form, note)
 
-***abstract***
-Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the *abstract* element.
+### abstract
+Records from Alma, JSTOR Forum, and ArchivesSpace may contain in the `abstract` element.
 
-***tableOfContents***
-Only Alma records can contain in the *tableOfContents* element.
+### tableOfContents
+Only Alma records can contain in the `tableOfContents` element.
 
 ***targetAudience*** and _part_** are almost non-existent in LibraryCloud.
 
