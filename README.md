@@ -1,3 +1,5 @@
+Note: This is a draft that is very much a work in progress!
+
 The below is an example of how the current document MODS Application Profile for LibraryCloud could be rendered in markdown (.md) format. There's a helpful [cheat sheet for markdown syntax here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 GitHub's version of Markdown is [GitHub Flavord Markdown (GFM)](https://github.github.com/gfm/). It allows for tables and other useful display features.
 
@@ -7,8 +9,6 @@ View the [prettified file on GitHub](https://github.com/joemull/Metadata/blob/ma
 
 # MODS Application Profile for LibraryCloud
 _Draft, rev. 2019-06-28_
-
-## New Level 2 heading
 
 ## Overview
 
