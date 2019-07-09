@@ -688,3 +688,80 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Contained In | //HarvardDRS:DRSMetadata |
 | Note | The value applies to a file in the DRS if the URN in the LibraryCloud record resolves to a specific file.  If the URN resolves to a multifile object, the accessFlag will be the least restrictive accessFlag value associated with any deliverable file in the object.  |
 | Example | `<HarvardDRS:accessFlag>P</HarvardDRS:accessFlag>` | 
+
+| Element | contentModel |
+|:---|:---|
+| Description | An indication of type and structure of the digital object in the DRS. |
+| Attributes | None |
+| Content | Controlled values: <ul><li>STILL IMAGE</li><li>PDS DOCUMENT</li><li>DOCUMENT</li><li>AUDIO</li><li>TEXT</li><li>PDS DOCUMENT LIST</li><li>VIDEO</li></ul> |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | |
+| Example | `<HarvardDRS:contentModel>P</HarvardDRS:contentModel>` | 
+
+| Element | uriType |
+|:---|:---|
+| Description | A code for the type of service that will be used to deliver the content to the user. |
+| Attributes | None |
+| Content | Controlled values: <ul><li>FDS</li><li>IDS</li><li>PDS</li><li>PDS_LIST</li><li>SDS</li><li>SDS_VIDEO</li></ul> |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | Delivery service types: FDS (text documents), IDS (images), PDS (page-turned objects), PDS_LIST (list of page-turned objects), SDS (streaming audio), (SDS_VIDEO (streaming video) |
+| Example | `<HarvardDRS:uriType>P</HarvardDRS:uriType>` | 
+
+| Element | fileDeliveryUrl |
+|:---|:---|
+| Description | The persistent identifier for delivery of the DRS content. |
+| Attributes | None |
+| Content | |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | This URL serves to associate a URL in descriptive record with its corresponding DRS metadata. Despite its name, it does not necessarily correspond to a delivered file. Most often it delivers content in a dedicated viewer or rendering application. |
+| Example | `<HarvardDRS:fileDeliveryURL>https://nrs.harvard.edu/urn-3:FHCL:2789166</HarvardDRS:fileDeliveryURL>` | 
+
+| Element | ownerCode |
+|:---|:---|
+| Description | A DRS code identifying the Harvard library, archive, or other repository responsible for the digital content. |
+| Attributes | None |
+| Content | [is therer a public code list?] |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | This value is expanded into the human-readable text form of the unit name in the ownerCodeDisplayName element. |
+| Example | `<HarvardDRS:ownerCode>FHCL.HOUGH</HarvardDRS:ownerCode>` | 
+
+| Element | ownerCodeDisplayName |
+|:---|:---|
+| Description | The DRS name for the Harvard library, archive, or other repository responsible for the digital content. |
+| Attributes | None |
+| Content | A text string [is therer a public code list?] |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | This value corresponds to the code for the unit name in the ownerCode element. |
+| Example | `<HarvardDRS:ownerCodeDisplayName>Houghton Library</HarvardDRS:ownerCodeDisplayName>` | 
+
+| Element | metsLabel |
+|:---|:---|
+| Description | A descriptive string from the METS object descriptor file in the DRS for identifying an object to a user. |
+| Attributes | None |
+| Content | A text string |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | |
+| Example | `<HarvardDRS:metsLabel> LN 93. Derviš, Zilić. Ide Tito preko Romanije. Stolac, June 9, 1950. Albert B. Lord Collection. Milman Parry Collection of Oral Literature.</HarvardDRS:metsLabel>` | 
+
+| Element | lastModificationDate |
+|:---|:---|
+| Description | The date and time of the most recent update to the object in the DRS. |
+| Attributes | None |
+| Content | ISO8601 timestamp in the form YYYY-MM-DDThh:mm:ss.SSSZ |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | |
+| Example | `<HarvardDRS:lastModifiedDate>2015-11-02T15:06:39.404Z</HarvardDRS:lastModifiedDate>` | 
