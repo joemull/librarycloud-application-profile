@@ -669,7 +669,7 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 
 | Element | inDRS |
 |:---|:---|
-| Description | A flag indicating that there is digital content in the DRS associated with this record |
+| Description | A flag indicating that there is digital content in the DRS associated with this record. |
 | Attributes | None |
 | Content | True | 
 | Obligation | Required |
@@ -677,3 +677,14 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Contained In | //HarvardDRS:DRSMetadata |
 | Note | The element exists to facilitate searching and faceting. Only `inDRS="true"` is explicit in the metadata. Any record lacking a DRSMetadata extension will be recorded as `inDRS=“false”` in the LibraryCloud Item API, and there will be no DRSMetadata extension in the record. |
 | Example | `<HarvardDRS:inDRS>true</HarvardDRS:inDRS> ` | 
+
+| Element | accessFlag |
+|:---|:---|
+| Description | A code indicating whether the DRS digital content is accessible to the public or is restricted to Harvard affiliates. |
+| Attributes | None |
+| Content | Controlled values: <ul><li>P (public)</li><li>R (restricted)</li></ul> |
+| Obligation | Required |
+| Repeatable | No |
+| Contained In | //HarvardDRS:DRSMetadata |
+| Note | The value applies to a file in the DRS if the URN in the LibraryCloud record resolves to a specific file.  If the URN resolves to a multifile object, the accessFlag will be the least restrictive accessFlag value associated with any deliverable file in the object.  |
+| Example | `<HarvardDRS:accessFlag>P</HarvardDRS:accessFlag>` | 
