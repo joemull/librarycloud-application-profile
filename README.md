@@ -951,7 +951,13 @@ They may have dedicated exhibit sites, [e.g.](http://curiosity.lib.harvard.edu/w
 MH:ALMA:
 <ol><li> Permalink to the record in HOLLIS: 
 
-  `<mods:relatedItem otherType="HOLLIS record"> <mods:location> <mods:url> https://id.lib.harvard.edu/alma/990000000230203941/catalog </mods:url> </mods:location>`
+  `<mods:relatedItem otherType="HOLLIS record">
+  <mods:location>
+  <mods:url>
+  https://id.lib.harvard.edu/alma/990000000230203941/catalog 
+  </mods:url>
+  </mods:location>
+  `
 </li>
 <li> Unspecified - Link to Finding Aid: 
 
@@ -985,7 +991,38 @@ MH:ALMA:
   <mods:identifier type="local">(OCoLC)654737656</mods:identifier>
   `
 </li>
+<li> Constituent part:
 
+  `<mods:relatedItem type="constituent">
+  <mods:titleInfo>
+  <mods:title>Société civile et efficacité de l'aide</mods:title>
+  </mods:titleInfo>
+  `
+</li>
+<li> Larger context / Is Part OF:
+
+  `<mods:relatedItem displayLabel="part of">
+  <mods:titleInfo>
+  <mods:title>
+  Julia Child Additional papers. Folder: Paul Child log book transcription: 6_KC64, HOLLIS collection-level record: 12694681
+  </mods:title>
+  </mods:titleInfo>
+  `
+</li>
+<li> Is Referenced By: 
+
+  `<mods:relatedItem type="isReferencedBy">
+  <mods:titleInfo>
+  <mods:title>Pottle, F.A. Boswell,</mods:title>
+  </mods:titleInfo>
+  <mods:part>
+  <mods:detail type="part">
+  <mods:number>91</mods:number>
+  </mods:detail>
+  </mods:part>
+  `
+</li>
+</ol>
 
 
 
