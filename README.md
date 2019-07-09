@@ -8,6 +8,8 @@ View the [prettified file on GitHub](https://github.com/joemull/Metadata/blob/ma
 # MODS Application Profile for LibraryCloud
 _Draft, rev. 2019-06-28_
 
+## New Level 2 heading
+
 ## Overview
 
 Harvard’s LibraryCloud service provides API access to descriptive metadata for Harvard Library resources. LibraryCloud metadata is openly available to the public. Anyone can use the API to find, gather, and repurpose the metadata. It also is used within Harvard Library applications--for example, by serving metadata to [Harvard Digital Collections](https://library.harvard.edu/digital-collections) and [CURIOSity Digital Collections](https://curiosity.lib.harvard.edu/)--and it underlies sites and services developed throughout the Harvard community. It also supports Harvard’s partnerships with initiatives such as DPLA. As such, the metadata aims to balance internal and external requirements and expectations.
