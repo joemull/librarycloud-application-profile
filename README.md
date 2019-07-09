@@ -781,5 +781,5 @@ The elements may occur together in one librarycloud wrapper element in a single 
 | Obligation | Optional |
 | Repeatable | No |
 | Contained In | //librarycloud:librarycloud |
-| Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag <p>&#129130<p> P Everyone</li><li>accessFlag R Harvard only</li></ul>  |
+| Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag->P Everyone</li><li>accessFlag->R Harvard only</li></ul>  Two types of content may have inaccurate values: <ol><li>Restricted images that have separate thumbnail images deposited in the DRS will appear as “Everyone”</li><li>Restricted Audio content that is accessed through a DRS playlist appears as “Everyone” because the playlist is public, even if the underlying audio files are not. </li></ol>|
 | Example | `<librarycloud:availableTo>Everyone</librarycloud:availableTo>` | 
