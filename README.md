@@ -765,3 +765,21 @@ The DRSMetadata extension includes a subset of administrative and technical meta
 | Contained In | //HarvardDRS:DRSMetadata |
 | Note | |
 | Example | `<HarvardDRS:lastModifiedDate>2015-11-02T15:06:39.404Z</HarvardDRS:lastModifiedDate>` | 
+
+### librarycloud Extension 
+The librarycloud extension provides alternative, normalized, or user-friendly values to improve searching, faceting, or display, as well as auxiliary and administrative information. 
+
+The elements may occur together in one librarycloud wrapper element in a single mods:extension or split across more than one mods:extension, and they may occur at any level of the hierarchy.
+
+<!-- Add table block for librarycloud wrapper -->
+
+| Element | availableTo |
+|:---|:---|
+| Description | A single value that represents the broadest access for any DRS content referenced by the LibraryCloud record. If any part of the DRS content is public, the value will be “Everyone”. |
+| Attributes | None |
+| Content | Values: <ul><li>Everyone</li><li>Harvard only</li></ul> |
+| Obligation | Optional |
+| Repeatable | No |
+| Contained In | //librarycloud:librarycloud |
+| Note | availableTo values are derived from HarvardDRS:accessFlag values. <ul><li>accessFlag &#129130 P Everyone</li><li>accessFlag R Harvard only</li></ul>  |
+| Example | `<librarycloud:availableTo>Everyone</librarycloud:availableTo>` | 
